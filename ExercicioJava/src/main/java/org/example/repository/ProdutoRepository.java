@@ -9,7 +9,7 @@ public interface ProdutoRepository {
 
     List<Produto> findAll();
 
-    Produto findById();
+    Produto findById(int id);
 
     Produto update(Produto produto);
 
