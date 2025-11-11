@@ -13,5 +13,5 @@ public interface ProdutoRepository {
 
     Produto update(Produto produto);
 
-    void deleteById(int id);
+    boolean deleteById(int id);
 }

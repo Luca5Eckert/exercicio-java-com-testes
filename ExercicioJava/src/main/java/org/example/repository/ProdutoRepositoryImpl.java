@@ -174,7 +174,7 @@ public class ProdutoRepositoryImpl implements ProdutoRepository{
     }
 
     @Override
-    public void deleteById(int id) {
+    public boolean deleteById(int id) {
 
         try(Connection connection = ConexaoBanco.conectar();
             PreparedStatement statement = connection.prepareStatement(DELETE_BY_ID)
@@ -183,6 +183,8 @@ public class ProdutoRepositoryImpl implements ProdutoRepository{
             statement.setInt(1, id);
 
             statement.executeUpdate();
+
+            return true;
 
         } catch (SQLException e){
             throw new RuntimeException("[ERROR] Connection database: " + e.getMessage());
