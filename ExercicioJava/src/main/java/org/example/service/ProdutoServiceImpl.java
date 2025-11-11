@@ -15,6 +15,9 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
     public Produto cadastrarProduto(Produto produto) {
+        if(produto.getPreco() < 0){
+            throw new IllegalArgumentException("Preço deve ser positivo.");
+        }
         return produtoRepository.save(produto);
     }
 

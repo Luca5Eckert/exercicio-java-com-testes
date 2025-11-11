@@ -138,7 +138,7 @@ public class ProdutoRepositoryImpl implements ProdutoRepository{
                     return new Produto(id, nome, preco, quantidade, categoria);
                 }
 
-                throw new RuntimeException("[ERROR] User not found in database: ");
+                return null;
 
             }
 
@@ -182,9 +182,9 @@ public class ProdutoRepositoryImpl implements ProdutoRepository{
 
             statement.setInt(1, id);
 
-            statement.executeUpdate();
+            int rows = statement.executeUpdate();
 
-            return true;
+            return rows > 0;
 
         } catch (SQLException e){
             throw new RuntimeException("[ERROR] Connection database: " + e.getMessage());

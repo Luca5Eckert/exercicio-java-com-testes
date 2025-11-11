@@ -12,4 +12,8 @@ public class ConexaoBanco {
     public static Connection conectar() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
+
+    public static void main(String[] args) throws SQLException {
+        conectar();
+    }
 }

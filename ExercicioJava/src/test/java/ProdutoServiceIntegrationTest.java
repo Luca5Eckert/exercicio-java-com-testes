@@ -1,4 +1,5 @@
 import org.example.model.Produto;
+import org.example.repository.ProdutoRepositoryImpl;
 import org.example.service.ProdutoService;
 import org.example.service.ProdutoServiceImpl;
 import org.example.util.ConexaoBanco;
@@ -86,7 +87,7 @@ public class ProdutoServiceIntegrationTest {
         // 6. Instancia o Service
         // Isso fará com que o Service crie seu Repositório,
         // que por sua vez usará ConexaoBanco.conectar()
-        produtoService = new ProdutoServiceImpl();
+        produtoService = new ProdutoServiceImpl(new ProdutoRepositoryImpl());
     }
 
     @Test
